@@ -9,4 +9,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  has_many :user_rooms
+  has_many :chats
+  has_many :rooms, through: :user_rooms
 end

@@ -1,0 +1,5 @@
+<div class="d-flex justify-content-end align-items-center my-3">
+  <span class="small mr-1"><%= l chat.created_at, format: :short %></span>
+  <span class="current_user_says"><%= safe_join(chat.message.split("\n"),tag(:br)) %></span>
+  <span class="align-middle"><%= attachment_image_tag current_user, :profile_image, fallback: "icon.png", size: "50x50", class: "rounded-circle" %></span>
+</div>
