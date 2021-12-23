@@ -1,1 +1,24 @@
-<%= @user.name %>, <%= @user.email %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-md-8 col-lg-6 mx-auto">
+      <h2>マイページ</h2>
+      <table class="table mt-5">
+        <tr>
+          <th style="width:30%">ユーザー名</th>
+          <td style="width:70%"><%= @user.name %></td>
+        </tr>
+        <% if current_user %>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= @user.email %></td>
+          </tr>
+        <% end %>
+      </table>
+      <div class="text-center mt-5">
+        <% if current_user %>
+          <%= link_to "編集", edit_user_path(current_user), class: "btn btn-secondary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
