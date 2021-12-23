@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F8E00E;">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: orange;">
     <div class="container">
       <a class="navbar-brand" href="/">Talk About _</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,6 +11,11 @@
           <li>
             <%= link_to root_path, class: "nav-link" do %>
               <i class="fas fa-home fa-fw"></i> ホーム
+            <% end %>
+          </li>
+          <li>
+            <%= link_to users_path, class: "nav-link" do %>
+              <i class="fas fa-users fa-fw"></i> ユーザー
             <% end %>
           </li>
           <li>
