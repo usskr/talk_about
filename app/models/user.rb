@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attachment :profile_image
   before_save { self.email = email.downcase }
   validates :name,  presence: true, length: { maximum: 30 },
                     uniqueness: true

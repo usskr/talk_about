@@ -7,6 +7,11 @@
       
         <%= render "shared/error_messages" %>
         
+        <div class="form-group my-4 text-center">
+          <%= attachment_image_tag @user, :profile_image, fallback: "icon.png", id: "preview", style: "width:200px;height:200px;border-radius:50%;margin-bottom:30px;" %>
+          <%= f.attachment_field :profile_image %>
+        </div>
+        
         <div class="form-group">
           <%= f.label :name, "ユーザ名" %>
           <%= f.text_field :name, class: "form-control" %>
@@ -33,3 +38,13 @@
     </div>
   </div>
 </div>
+
+<script>
+  $('#user_profile_image').on('change', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $("#preview").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]);
+});
+</script>
