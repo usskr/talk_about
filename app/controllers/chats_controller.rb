@@ -2,6 +2,12 @@ class ChatsController < ApplicationController
 
   def index
     @user = User.where.not(id: current_user.id) && User.offset(rand(User.count)).first
+    @currentEntries = current_user.user_rooms
+    myRoomIds = []
+    @currentEntries.each do |user_room|
+      myRoomIds << user_room.room.id
+    end
+    @anotherEntries = UserRoom.where(room_id: myRoomIds).where('user_id != ?',current_user)
   end
 
   def show
