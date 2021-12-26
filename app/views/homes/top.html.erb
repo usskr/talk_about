@@ -9,7 +9,11 @@
         ランダムな相手と、ランダムなトピックで会話が楽しめる。
       </p>
       <div class="text-center">
-        <%= link_to "TalkAboutを始める", login_path, class: "btn btn-info btn-lg mt-5" %>
+        <% if logged_in? %>
+          <%= link_to "TalkAboutを始める", chats_path, class: "btn btn-info btn-lg mt-5" %>
+        <% else %>
+          <%= link_to "TalkAboutを始める", login_path, class: "btn btn-info btn-lg mt-5" %>
+        <% end %>
       </div>
     </div>
   </div>
