@@ -22,10 +22,10 @@
               <% end %>
             </td>
             <td>
-              <%= e.room.chats.take.try(:message) %>
+              <%= e.room.chats.order(created_at: :desc).take.message %>
             </td>
             <td>
-              <%= e.room.chats.take.try(:created_at) %>
+              <%= e.room.chats.order(created_at: :desc).take.created_at %>
             </td>
           </tr>
         <% end %>
