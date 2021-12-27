@@ -21,12 +21,7 @@
                 <%= e.user.name %>
               <% end %>
             </td>
-            <td>
-              <%= e.room.chats.order(created_at: :desc).take.message %>
-            </td>
-            <td>
-              <%= e.room.chats.order(created_at: :desc).take.created_at %>
-            </td>
+  
           </tr>
         <% end %>
         </table>

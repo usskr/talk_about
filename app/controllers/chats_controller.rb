@@ -28,7 +28,23 @@ class ChatsController < ApplicationController
 
   def create
     @chat = current_user.chats.new(chat_params)
-    @chat.save
+    @room = @chat.room
+    if @chat.save
+      @roommembernotme = UserRoom.where(room_id: @room.id).where.not(user_id: current_user.id)
+      @theid = @roommembernotme.find_by(room_id: @room.id)
+      notification = current_user.active_notifications.new(
+          room_id: @room.id,
+          message_id: @chat.id,
+          visited_id: @theid.user_id,
+          visitor_id: current_user.id,
+          action: 'dm'
+      )
+      # 自分の投稿に対するコメントの場合は、通知済みとする
+      if notification.visitor_id == notification.visited_id
+          notification.checked = true
+      end
+      notification.save if notification.valid?
+    end
   end
 
   private
