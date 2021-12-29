@@ -10,6 +10,15 @@
         <%= link_to "chatを始める", chat_path(@user.id), class: "btn btn-info btn-lg mt-5 text-center" %>
       </div>
       <div>
+        <%= link_to notifications_path do %>
+          <% if unchecked_notifications.any? %>
+            <p>通知（未読あり）</p>
+          <% else %>
+            <p>通知</p>
+          <% end %>
+        <% end %>
+      </div>
+      <div>
         <table class="table mt-5">
         <% @anotherEntries.each do |e| %>
           <tr>
@@ -21,7 +30,6 @@
                 <%= e.user.name %>
               <% end %>
             </td>
-  
           </tr>
         <% end %>
         </table>

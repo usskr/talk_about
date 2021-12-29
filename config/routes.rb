@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   delete "logout" => "sessions#destroy"
   resources :users
   resources :chats, only: [:create, :index, :show]
+  resources :notifications, only: :index
 end
