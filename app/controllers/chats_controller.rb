@@ -34,7 +34,7 @@ class ChatsController < ApplicationController
     @chat = current_user.chats.new(chat_params)
     @chat.save
     @room = @chat.room
-    @room.create_notification_dm(current_user, @chat.id)
+    @room.create_notification_chat(current_user, @chat.id)
   end
 
   private

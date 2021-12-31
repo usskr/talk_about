@@ -25,9 +25,14 @@
             <td>
               <%= attachment_image_tag(e.user, :profile_image, size: "60x60", fallback: "icon.png", style: "border-radius: 50%;") %>
             </td>
-            <td>
-              <%= link_to chat_path(e.user) do %>
+            <td class="align-middle">
+              <%= link_to user_path(e.user) do %>
                 <%= e.user.name %>
+              <% end %>
+            </td>
+            <td class="align-middle">
+              <%= link_to chat_path(e.user) do %>
+                チャット
               <% end %>
             </td>
           </tr>
