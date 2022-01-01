@@ -1,12 +1,11 @@
 <% visitor = notification.visitor %>
 
-<%= link_to user_path(visitor) do %>
-  <%= visitor.name %>
-<% end %>
-<span>さんが</span>
-
 <% case notification.action %>
 <% when 'chat' %>
-  <p>あなたにチャットを送りました</p>
+  <%= link_to user_path(visitor) do %>
+    <%= visitor.name %>
+  <% end %>
+  <span>さんがあなたにチャットを送りました</span>
+  <%= l notification.created_at, format: :short  %>
   <hr>
 <% end %>
