@@ -35,6 +35,9 @@
                 チャット
               <% end %>
             </td>
+            <td class="align-middle">
+              <%= Chat.find_by(id: e.room.chat_ids.last).message %>
+            </td>
           </tr>
         <% end %>
         </table>
