@@ -9,9 +9,6 @@ class ChatsController < ApplicationController
     end
     @anotherEntries = UserRoom.where(room_id: myRoomIds).where('user_id != ?',current_user)
     @notifications = current_user.passive_notifications
-    @notifications.where(checked: false).each do |notification|
-      notification.update(checked: true)
-    end
   end
 
   def show

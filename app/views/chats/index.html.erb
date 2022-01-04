@@ -35,6 +35,9 @@
               <%= Chat.find_by(id: e.room.chat_ids.last).message %>
             </td>
             <td class="align-middle">
+              <%= @notifications.count %>
+            </td>
+            <td class="align-middle">
               <%= link_to chat_path(e.user) do %>
                 チャットを開く
               <% end %>
