@@ -47,3 +47,13 @@
     border-left: 12px solid #ffedab;
   }
 }
+
+.notification_count {
+  display: inline-block;
+  width: 40px;
+	height: 40px;
+  border-radius: 50%;
+  background-color: #ffedab;
+  text-align: center;
+  line-height: 40px
+}

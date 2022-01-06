@@ -35,7 +35,9 @@
               <%= Chat.find_by(id: e.room.chat_ids.last).message %>
             </td>
             <td class="align-middle">
-              <%= e.user.active_notifications.where(checked: false).count %>
+              <span class="notification_count">
+                <%= e.user.active_notifications.where(checked: false).count %>
+              </span>
             </td>
             <td class="align-middle">
               <%= link_to chat_path(e.user) do %>
