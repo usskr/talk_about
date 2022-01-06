@@ -12,7 +12,8 @@
       <div>
         <%= link_to notifications_path do %>
           <% if unchecked_notifications.any? %>
-            <p>通知（未読あり）</p>
+            <span>通知</span>
+            <span class="notification_count"><%= unchecked_notifications.count %></span>
           <% else %>
             <p>通知</p>
           <% end %>
@@ -35,9 +36,11 @@
               <%= Chat.find_by(id: e.room.chat_ids.last).message %>
             </td>
             <td class="align-middle">
-              <span class="notification_count">
-                <%= e.user.active_notifications.where(checked: false).count %>
-              </span>
+              <% if e.user.active_notifications.where(checked: false).count > 0 %>
+                <span class="notification_count">
+                  <%= e.user.active_notifications.where(checked: false).count %>
+                </span>
+              <% end %>
             </td>
             <td class="align-middle">
               <%= link_to chat_path(e.user) do %>
