@@ -29,16 +29,17 @@
                 <%= e.user.name %>
               <% end %>
             </td>
-            <td class="align-middle">
-              <% if Chat.where(id: e.room.chat_ids.last).exists? %>
+            <% if Chat.where(id: e.room.chat_ids.last).exists? %>
+              <td class="align-middle">
                 <%= l Chat.find_by(id: e.room.chat_ids.last).created_at, format: :short %>
-              <% end %>
-            </td>
-            <td class="align-middle">
-              <% if Chat.where(id: e.room.chat_ids.last).exists? %>
+              </td>
+              <td class="align-middle">
                 <%= Chat.find_by(id: e.room.chat_ids.last).message %>
-               <% end %>
-            </td>
+              </td>
+            <% else %>
+              <td class="align-middle" colspan="2">
+              </td>
+            <% end %>
             <td class="align-middle">
               <% if e.user.active_notifications.where(checked: false).count > 0 %>
                 <span class="notification_count">
