@@ -23,6 +23,7 @@
         <%= form_with model: @chat, remote: true, class: "d-flex" do |f| %>
           <%= f.text_area :message, placeholder: "メッセージを入力してください", class: "form-control" %>
           <%= f.hidden_field :room_id %>
+          <%= f.attachment_field :image %>
           <%= f.submit "送信", class: "btn btn-success" %>
         <% end %>
       </div>
