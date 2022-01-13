@@ -1,6 +1,7 @@
 <%# メッセージの非同期通信 %>
 $('.message').append("<%= j(render("message", chat: @chat)) %>");
 $('#chat_message').val("")
+$('#chat_image').val("")
 
 <%# 最新のメッセージまでスクロール %>
 $('.message').animate({scrollTop: $('.message')[0].scrollHeight}, 'fast');
