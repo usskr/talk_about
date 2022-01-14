@@ -12,7 +12,7 @@
       <div>
         <%= link_to notifications_path do %>
           <% if unchecked_notifications.any? %>
-            <span>通知</span>
+            <span>通知（新着あり）</span>
             <span class="notification_count"><%= unchecked_notifications.count %></span>
           <% else %>
             <p>通知</p>
